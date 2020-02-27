@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
-import { useHistory, Link } from "react-router-dom";
+//import { useHistory, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+
 
 import { TextInput, Button } from 'grommet';
 import './styles.css'
 
 export default function Register (){
-    let history = useHistory();
+    //let history = useHistory();
 
     const [user, setUser] = useState('');
     const [password, setPassword] = useState('');

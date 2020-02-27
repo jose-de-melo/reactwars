@@ -8,16 +8,21 @@ import {
 import Login from './pages/Login'
 import CardInfo from './pages/CardInfo'
 import Register from './pages/Register'
+import Home from './pages/Home'
 
 export const Routes = () => {
     return (
         <Router>
             <Switch>
                 <Route exact path="/">
+                    <Home/>
+                </Route>
+
+                <Route path="/login">
                     <Login/>
                 </Route>
 
-                <Route path="/cardInfo/:id">
+                <Route path="/info/:id">
                     <CardInfo/>
                 </Route>
 

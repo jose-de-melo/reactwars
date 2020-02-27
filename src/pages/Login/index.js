@@ -31,6 +31,7 @@ export default function Login(){
       let element = logins[i]
       
       if(element.login === user && element.password === password){
+        localStorage.setItem("userLogged", JSON.stringify(element))
         return true;
       }
     }
@@ -42,7 +43,7 @@ export default function Login(){
 
   function handleLogin(){
     if(verifyFields() && verifyLogin()){
-      history.push('/cardInfo')
+      history.push('/home')
     }
   }
 
