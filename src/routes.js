@@ -15,11 +15,11 @@ export const Routes = () => {
         <Router>
             <Switch>
                 <Route exact path="/">
-                    <Home/>
+                    <Login/>
                 </Route>
 
-                <Route path="/login">
-                    <Login/>
+                <Route path="/home">
+                    <Home/>
                 </Route>
 
                 <Route path="/info/:id">

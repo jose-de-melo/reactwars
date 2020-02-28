@@ -1,35 +1,45 @@
 import { createStore } from 'redux'
 
+import api from '../services/api'
+
+function getAPIData(category){
+    var response = api.get(`/${category}/`)
+    return response
+}
+
+
+/**
+const INITIAL_STATE ={
+    currentInfo: '',
+    data: '',
+    nextPage: null,
+    previousPage: null
+}
+
+
+ */
+
 const INITIAL_STATE = {
-    data: {
-        currentShowingInfo: '',
-        peoples: [],
-        planets: [],
-        starships: []
-    }
+    currentShowingInfo: '',
+    peoples: [],
+    planets: [],
+    starships: []
 }
 
 function information(state = INITIAL_STATE, action){
     switch (action.type) {
-        case 'LIST_PEOPLE':
-            return state.data.peoples
-            break;
-
-        case 'LIST_PLANETS':
-            return state.data.planets
-            break;
-
-        case 'LIST_STARSHIPS':
-            return state.data.starships
-            break;
-
-        case 'UPDATE_SHOWING_INFO':
-            return {...state, data.currentShowingInfo: action.info}
-            break;
+        case 'FETCH_INFO':
+            return {...state, peoples: ['Luke Skywalker', 'Jabba The Hut'], planets: ['Naboo']}
     
         default:
             return state;
     }
+}
+
+function fetchData(category){
+    api.get(`/${category}/`).then((resolve, reject) => {
+        
+    })
 }
 
 const store = createStore(information);

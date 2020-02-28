@@ -31,7 +31,7 @@ export default function Login(){
       let element = logins[i]
       
       if(element.login === user && element.password === password){
-        localStorage.setItem("userLogged", JSON.stringify(element))
+        localStorage.setItem("@reactwars/userLogged", JSON.stringify(element))
         return true;
       }
     }
