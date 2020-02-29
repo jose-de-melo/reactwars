@@ -1,9 +1,17 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-// import { Container } from './styles';
+import { useDispatch, useSelector } from 'react-redux'
+import { useHistory } from "react-router-dom";
 
-export default class CardInfo extends Component {
-  render() {
-    return <div>Teste cardinfo</div>;
-  }
+export default function CardInfo() {
+  const object = useSelector(state => state.currentObject)
+  const category = useSelector(state => state.currentCategory)
+  const history = useHistory()
+
+  return (
+    <div>
+      {object.name}
+      <button type="button" onClick={() => {history.push(`/list/${category}`)}}>Voltar</button>
+    </div>
+  );
 }

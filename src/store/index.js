@@ -1,45 +1,24 @@
 import { createStore } from 'redux'
 
-import api from '../services/api'
-
-function getAPIData(category){
-    var response = api.get(`/${category}/`)
-    return response
-}
-
-
-/**
-const INITIAL_STATE ={
-    currentInfo: '',
-    data: '',
-    nextPage: null,
-    previousPage: null
-}
-
-
- */
-
 const INITIAL_STATE = {
-    currentShowingInfo: '',
-    peoples: [],
-    planets: [],
-    starships: []
+    data: null,
+    nextPage: null,
+    previousPage: null,
+    currentObject: null,
+    currentCategory: null
 }
 
 function information(state = INITIAL_STATE, action){
     switch (action.type) {
-        case 'FETCH_INFO':
-            return {...state, peoples: ['Luke Skywalker', 'Jabba The Hut'], planets: ['Naboo']}
-    
+        case 'FETCH_DATA':
+            return {...state, data: action.data, nextPage: action.nextPage, previousPage: action.previousPage}
+        case 'SET_CURRENT_OBJECT':
+            return {...state, currentObject: action.object, currentCategory: action.category}
+        case 'CLEAR_DATA':
+            return {...state, data: null, nextPage: null, previousPage: null, currentObject: null, currentCategory: null}
         default:
             return state;
     }
-}
-
-function fetchData(category){
-    api.get(`/${category}/`).then((resolve, reject) => {
-        
-    })
 }
 
 const store = createStore(information);

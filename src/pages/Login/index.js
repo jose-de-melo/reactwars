@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useHistory, Link } from "react-router-dom";
 
 import { TextInput, Button } from 'grommet';
@@ -43,9 +43,19 @@ export default function Login(){
 
   function handleLogin(){
     if(verifyFields() && verifyLogin()){
-      history.push('/home')
+      history.push('/')
     }
   }
+
+  function verifyStorage(){
+    let userLogged = JSON.parse(localStorage.getItem("@reactwars/userLogged"));
+
+    if(userLogged){
+        history.push('/')
+    }
+  }
+
+  useEffect(() => verifyStorage() , [])
 
   return (
     <div className="container">

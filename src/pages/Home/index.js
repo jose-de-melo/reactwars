@@ -1,34 +1,36 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
-import { useSelector, useDispatch } from "react-redux"
-import { useHistory, Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 export default function Home(){
-    const data = useSelector(state => state.peoples)
-    const dispatch = useDispatch()
     let history = useHistory();
 
     function userLogged(){
         let userLogged = JSON.parse(localStorage.getItem("@reactwars/userLogged"));
 
-        if(userLogged === null){
-            history.push('/')
+        if(!userLogged){
+            history.push('/login')
         }
     }
 
-    function fetchData(){
-        dispatch({type: 'FETCH_INFO'})
+    function logout(){
+        localStorage.removeItem("@reactwars/userLogged")
+        history.push('/login')
     }
 
-    userLogged()
+    function showListPage(category){
+        history.push(`/list/${category}`)
+    }
+
+    useEffect(() => { userLogged() }, [])
 
     return (
         <div>
             <div>HOME</div>
-            <ul>
-                {data.map(element => <li key={element}>{element}</li>)}
-            </ul>
-            <button type="button" onClick={fetchData}>Listar Personagens</button>
+            <button type="button" onClick={() => showListPage('people')}>Listar Personagens</button>
+            <button type="button" onClick={() => showListPage('planets')}>Listar Planetas</button>
+            <button type="button" onClick={() => showListPage('starships')}>Listar Espaçonaves</button>
+            <button type="button" onClick={logout}>Logout</button>
         </div>
     )
 }
