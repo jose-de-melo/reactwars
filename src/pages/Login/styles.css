@@ -1,26 +1,113 @@
+@font-face {
+    font-family: 'Gotham';
+    src: url('../../assets/fonts/Gotham.ttf');
+}
+
 *{
+    font-family: Gotham !important;
     margin: 0;
     padding: 0;
 }
 
-.container{
+.c-login{
     width: 100vw;
     height: 100vh;
-    background: #6C7A89;
     display: flex;
-    flex-direction: row;
+    background: #6D4CC3;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.title{
+    color: #FFF;
+    font-size: 40px;
+    margin-bottom: 10px;
 }
 
 .box {
     width: 600px;
     height: 600px;
     background: #fff;
-    border-radius: 5px;
+    border-radius: 15px;
+    -webkit-box-shadow: 6px 6px 9px 1px rgba(38,50,56,0.4);
+    -moz-box-shadow: 6px 6px 9px 1px rgba(38,50,56,0.4);
+    box-shadow: 6px 6px 9px 1px rgba(38,50,56,0.4);
     text-align: center;
+}
+
+.action{
+    margin-top: 85px;
+    margin-bottom: 20px;
+    font-size: 25px;
+    font-weight: bold;
+    
+}
+
+.label-input{
+    margin-top: 30px;
+    margin-bottom: 5px;
+}
+
+.button{
+    margin-top: 20px !important;
+}
+
+.div-link{
+    margin-top: 30px;
+}
+
+.link{
+    text-decoration: none !important;
 }
 
 .input{
     width: 70% !important;
+}
+
+.div-error{
+    margin-top: 25px;
+    padding: 10px;
+    background-color: #e53935;
+    color: #FFF;
+    text-align: center;
+    font-size: 17px;
+}
+
+a{
+    color: #304ffe;
+}
+
+a:visited {
+    color: #304ffe;
+}
+
+@media screen and (max-width: 480px) {
+    .action{
+        margin-top: 40px;
+    }
+
+    .title{
+        font-size: 35px;
+        margin-bottom: 20px;
+    }
+
+    .div-error{
+        font-size: 15px;
+    }
+
+
+    .box{
+        width: 80%;
+        height: 70%;
+    }
+
+    a{
+        font-size: 14px;
+    }
+
+    .label-input{
+        margin-top: 20px;
+        margin-bottom: 5px;
+    }
 }

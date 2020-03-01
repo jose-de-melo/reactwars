@@ -41,7 +41,9 @@ export default function CardList() {
         history.push('/')
     }
 
-    useEffect(() => { getInitialData() }, [])
+    useEffect(() => { getInitialData() }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    , [])
 
     return (
         <div>

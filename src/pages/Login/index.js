@@ -19,7 +19,7 @@ export default function Login(){
   function verifyFields(){
       if(user === '' || password === ''){
           setError(true)
-          setMessage('Usuário ou senha inválido!')
+          setMessage('Login inválido!')
           return false;
       }
       return true;
@@ -30,7 +30,7 @@ export default function Login(){
       return true
 
     setError(true)
-    setMessage('Usuário não cadastrado ou inválido!')
+    setMessage('Login inválido!')
     return false;
   }
 
@@ -46,14 +46,19 @@ export default function Login(){
     }
   }
 
-  useEffect(() => getUserLogged() , [])
+  useEffect(() => getUserLogged() 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    , [])
 
   return (
-    <div className="container">
+    <div className="c-login">
+    <div className="title">ReactWars</div>
       <div className="box">
-        <div>ReactWars</div>
-        <div><FormattedMessage id="action"/></div>
-        <div>Usuário</div>
+
+        <div className="action"><FormattedMessage id="action"/></div>
+
+        <div className="label-input">Usuário</div>
+
         <TextInput
           className="input"
           size="small"
@@ -65,7 +70,8 @@ export default function Login(){
           }}
         />
 
-        <div>Senha</div>
+        <div className="label-input">Senha</div>
+
         <TextInput
           className="input"
           size="small"
@@ -79,17 +85,18 @@ export default function Login(){
         />
 
         <Button
+          className="button"
           label="Entrar"
           onClick={() => {handleLogin()}}
         />
 
-        <div>
-            <Link to="/register">
+        <div className="div-link">
+            <Link className="link" to="/register">
               Sem cadastro ? Registre-se aqui.
             </Link>
         </div>
 
-        { (error) ? <div>{message}</div> : <span></span>}
+        { (error) ? <div className="div-error">{message}</div> : <span></span>}
 
       </div>
     </div>

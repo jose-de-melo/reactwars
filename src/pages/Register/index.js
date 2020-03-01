@@ -35,14 +35,15 @@ export default function Register (){
     }
 
     return (
-       <div className="container">
+       <div className="c-register">
+            <div className="title">ReactWars</div>
             <div className="box">
-                <div>ReactWars</div>
+                
 
-                <div>Registrar Usuário</div>
+                <div className="action">Registrar Usuário</div>
 
 
-                <div>Usuário</div>
+                <div className="label-input">Usuário</div>
                 <TextInput
                     className="input"
                     size="small"
@@ -55,7 +56,7 @@ export default function Register (){
                 />
 
 
-                <div>Senha</div>
+                <div className="label-input">Senha</div>
                 <TextInput
                     className="input"
                     size="small"
@@ -69,17 +70,18 @@ export default function Register (){
                 />
 
                 <Button
+                    className="button"
                     label="Registrar"
                     onClick={() => {handleRegister()}}
                 />
 
-                <div>
-                <Link to="/">
-                   Cancelar
-                </Link>
-            </div>
+                <div className="div-link">
+                    <Link to="/" className="link">
+                        Voltar
+                    </Link>
+                </div>
 
-            { (message) ? <div className={(error) ? "error": "success"} >{message}</div> : <span></span>}
+            { (message) ? <div className={(error) ? "message error": "message success"} >{message}</div> : <span></span>}
 
             </div>
             
