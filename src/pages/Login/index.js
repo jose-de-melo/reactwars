@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react'
+import { FormattedMessage } from 'react-intl'
+
 import { useHistory, Link } from "react-router-dom";
+import { verifyLoginOnStorage, verifyStorage } from '../../services/storageServices'
 
 import { TextInput, Button } from 'grommet';
 import './styles.css'
@@ -19,22 +22,12 @@ export default function Login(){
           setMessage('Usuário ou senha inválido!')
           return false;
       }
-      else{
-          return true;
-      }
+      return true;
   }
 
   function verifyLogin(){
-    let logins = JSON.parse(localStorage.getItem("@reactwars/logins"))
-
-    for(let i = 0; i < logins.length; i++){
-      let element = logins[i]
-      
-      if(element.login === user && element.password === password){
-        localStorage.setItem("@reactwars/userLogged", JSON.stringify(element))
-        return true;
-      }
-    }
+    if(verifyLoginOnStorage(user, password))
+      return true
 
     setError(true)
     setMessage('Usuário não cadastrado ou inválido!')
@@ -47,21 +40,19 @@ export default function Login(){
     }
   }
 
-  function verifyStorage(){
-    let userLogged = JSON.parse(localStorage.getItem("@reactwars/userLogged"));
-
-    if(userLogged){
+  function getUserLogged(){
+    if(verifyStorage()){
         history.push('/')
     }
   }
 
-  useEffect(() => verifyStorage() , [])
+  useEffect(() => getUserLogged() , [])
 
   return (
     <div className="container">
       <div className="box">
         <div>ReactWars</div>
-        <div>Entrar</div>
+        <div><FormattedMessage id="action"/></div>
         <div>Usuário</div>
         <TextInput
           className="input"

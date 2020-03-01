@@ -1,20 +1,19 @@
 import React, { useEffect } from 'react'
-
 import { useHistory } from "react-router-dom";
+import { FormattedMessage } from 'react-intl'
+
+import { verifyStorage, removeUserLogged } from '../../services/storageServices'
 
 export default function Home(){
     let history = useHistory();
 
     function userLogged(){
-        let userLogged = JSON.parse(localStorage.getItem("@reactwars/userLogged"));
-
-        if(!userLogged){
+        if(!verifyStorage())
             history.push('/login')
-        }
     }
 
     function logout(){
-        localStorage.removeItem("@reactwars/userLogged")
+        removeUserLogged()
         history.push('/login')
     }
 
@@ -22,11 +21,13 @@ export default function Home(){
         history.push(`/list/${category}`)
     }
 
-    useEffect(() => { userLogged() }, [])
+    useEffect(() => { 
+        userLogged()
+    }, [])
 
     return (
         <div>
-            <div>HOME</div>
+            <div><FormattedMessage id="home" /></div>
             <button type="button" onClick={() => showListPage('people')}>Listar Personagens</button>
             <button type="button" onClick={() => showListPage('planets')}>Listar Planetas</button>
             <button type="button" onClick={() => showListPage('starships')}>Listar Espaçonaves</button>

@@ -1,12 +1,10 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
+import { fetchData, clearData, setCurrentObject } from '../../store/actions'
 import { getDataFromCategory, getPageData } from '../../services/apiServices'
-
-import {
-  useParams
-} from "react-router-dom";
 
 export default function CardList() {
     const state = useSelector(state => state)
@@ -15,31 +13,31 @@ export default function CardList() {
 
     let { category } = useParams()
 
-    function fetchData(data){
-        dispatch({type: 'FETCH_DATA', data: data.data.results, nextPage: data.data.next, previousPage: data.data.previous})
+    function setData(data){
+        dispatch(fetchData(data.data.results, data.data.next, data.data.previous))
     }
 
     async function getInitialData(){
         if(!state.data){
             let response = await getDataFromCategory(category)
-            fetchData(response)
+            setData(response)
         }
     }
 
     async function getPage(page){
         if(state[page]){
             let response = await getPageData(state[page].split("/api/")[1])
-            fetchData(response)
+            setData(response)
         }
     }
 
     function moreInfo(object){
-        dispatch({type: 'SET_CURRENT_OBJECT', object: object, category: category})
+        dispatch(setCurrentObject(object, category))
         history.push('/info')
     }
 
     function goBackHome(){
-        dispatch({'type': 'CLEAR_DATA'})
+        dispatch(clearData())
         history.push('/')
     }
 
@@ -68,7 +66,5 @@ export default function CardList() {
             </div>
         
         </div>
-
-        
     );
 }

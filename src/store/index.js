@@ -8,7 +8,7 @@ const INITIAL_STATE = {
     currentCategory: null
 }
 
-function information(state = INITIAL_STATE, action){
+function reducer(state = INITIAL_STATE, action){
     switch (action.type) {
         case 'FETCH_DATA':
             return {...state, data: action.data, nextPage: action.nextPage, previousPage: action.previousPage}
@@ -21,6 +21,6 @@ function information(state = INITIAL_STATE, action){
     }
 }
 
-const store = createStore(information);
+const store = createStore(reducer);
 
 export default store;

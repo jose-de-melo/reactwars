@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 //import { useHistory, Link } from "react-router-dom";
 import { Link } from "react-router-dom";
 
+import { addUser } from '../../services/storageServices'
+
 
 import { TextInput, Button } from 'grommet';
 import './styles.css'
@@ -21,23 +23,14 @@ export default function Register (){
             setMessage('Ambos os campos devem ser preenchidos!')
             return false;
         }
-        else{
-            setError(false)
-            setMessage('Cadastro realizado com sucesso!')
-            return true;
-        }
+        return true;
     }
-
 
     function handleRegister(){
         if(verifyFields()){
-            let logins = []
-
-            if(localStorage.hasOwnProperty("@reactwars/logins"))
-                logins = JSON.parse(localStorage.getItem("@reactwars/logins"))
-
-            logins.push({'login': user, 'password': password})
-            localStorage.setItem('@reactwars/logins', JSON.stringify(logins))
+            addUser(user, password)
+            setError(false)
+            setMessage('Cadastro realizado com sucesso!')
         }
     }
 
