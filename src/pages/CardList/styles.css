@@ -1,0 +1,64 @@
+.c-list{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgb(171,215,242);
+    background: linear-gradient(90deg, rgba(171,215,242,1) 4%, rgba(45,38,180,1) 74%);
+ 
+}
+
+.loading{
+    height: 100vh;
+}
+
+.title-list{
+    color: #FFF;
+    padding: 20px 0;
+    font-size: 40px;
+}
+
+.list{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-list{
+    background-color: #FFF;
+    border-radius: 5px;
+    width: 40%;
+    height: 150px;
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+}
+
+.name-element{
+    margin-top: 25px;
+    font-size: 25px;
+}
+
+.buttonCard{
+    width: 50%;
+    margin: 15px 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-action{
+    background-color: blueviolet;
+    border: none;
+    color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+    margin: 0 20px;
+}
