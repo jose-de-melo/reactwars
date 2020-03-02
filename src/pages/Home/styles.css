@@ -3,14 +3,41 @@
     padding: 0;
 }
 
-.container{
+.c-home{
     width: 100vw;
     height: 100vh;
-    background: #6C7A89;
+    background: rgb(211,171,242);
+    background: linear-gradient(90deg, rgba(211,171,242,1) 29%, rgba(118,38,180,1) 74%);
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.div-cards{
+    height: 70%;
+    width: 70%;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.card-home{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    height: 80%;
+    width: 30%;
+    border-radius: 15px;
+}
+
+img{
+    border-radius: 50%;
 }
 
 .box {
@@ -23,4 +50,44 @@
 
 .input{
     width: 70% !important;
+}
+
+.button-card{
+    background-color: blueviolet;
+    border: none;
+    color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.title-card{
+    margin-top: 15px;
+    margin-bottom: 20px;
+    color: #9c27b0;
+}
+
+.info-card{
+    width: 75%;
+    margin-bottom: 15px;
+    font-size: 15px;
+}
+
+.title-home{
+    font-size: 40px;
+    font-weight: bold;
+    color: #FFF;
+}
+
+.button-home{
+    background-color: #FFF;
+    border: none;
+    color: blueviolet;
+    width: 120px;
+    height: 50px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
 }
