@@ -33,21 +33,21 @@ export default function Home(){
             <div className="title-home">ReactWars</div>
             <div className="div-cards">
                 <span className="card-home">
-                    <img width="150px" src="images/luke.png" alt="Luke Skywalker"/>
+                    <img src="images/luke.png" alt="Luke Skywalker"/>
                     <h3 className="title-card">Personagens</h3>
                     <div className="info-card">Informações sobre todos os personagens dos sete primeiros filmes</div>
                     <button className="button-card" type="button" onClick={() => showListPage('people')}>Listar Personagens</button>
                 </span>
 
                 <span className="card-home">
-                    <img width="150px" src="images/tatooine.jpg" alt="Tatooine"/>
+                    <img src="images/tatooine.jpg" alt="Tatooine"/>
                     <h3 className="title-card">Planetas</h3>
                     <div className="info-card">Informações sobre todos os planetas contidos nos sete primeiros filmes</div>
                     <button className="button-card" type="button" onClick={() => showListPage('planets')}>Listar Planetas</button>
                 </span>
 
                 <span className="card-home">
-                    <img width="150px" src="images/millenium.jpg" alt="Millenium Falcom"/>
+                    <img src="images/millenium.jpg" alt="Millenium Falcom"/>
                     <h3 className="title-card">Espaçonaves</h3>
                     <div className="info-card">Informações sobre todos as espaçonaves vistas nos sete primeiros filmes</div>
                     <button className="button-card" type="button" onClick={() => showListPage('starships')}>Listar Espaçonaves</button>

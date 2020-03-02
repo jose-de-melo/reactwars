@@ -38,6 +38,7 @@
 
 img{
     border-radius: 50%;
+    width: 150px;
 }
 
 .box {
@@ -90,4 +91,33 @@ img{
     cursor: pointer;
     font-size: 15px;
     font-weight: bold;
+}
+
+@media screen and (max-width: 480px) {
+    .c-home{
+        height: 100%;
+    }
+
+    .title-home{
+        margin: 25px 0;
+    }
+
+    .div-cards{
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .card-home{
+        padding: 20px 0;
+        width: 80%;
+        margin-bottom: 20px;
+    }
+
+    .button-home{
+        margin-bottom: 25px;
+    }
+
+    img{
+        width: 130px;
+    }
 }
