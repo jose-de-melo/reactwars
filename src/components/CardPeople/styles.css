@@ -1,0 +1,13 @@
+.card-info{
+    width: 85%;
+    background-color: #8e24aa;
+    height: 70%;
+    border-radius: 15px;
+    color: #FFF;
+}
+
+.info-name{
+    font-size: 35px;
+    text-align: start;
+    margin: 25px 25px;
+}

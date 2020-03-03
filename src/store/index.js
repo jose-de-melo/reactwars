@@ -5,7 +5,9 @@ const INITIAL_STATE = {
     nextPage: null,
     previousPage: null,
     currentObject: null,
-    currentCategory: null
+    currentCategory: null,
+    films: null,
+    homeworld: null
 }
 
 function reducer(state = INITIAL_STATE, action){
@@ -13,9 +15,9 @@ function reducer(state = INITIAL_STATE, action){
         case 'FETCH_DATA':
             return {...state, data: action.data, nextPage: action.nextPage, previousPage: action.previousPage}
         case 'SET_CURRENT_OBJECT':
-            return {...state, currentObject: action.object, currentCategory: action.category}
+            return {...state, currentObject: action.object, currentCategory: action.category, films: action.films, homeworld: action.homeworld}
         case 'CLEAR_DATA':
-            return {...state, data: null, nextPage: null, previousPage: null, currentObject: null, currentCategory: null}
+            return {...state, data: null, nextPage: null, previousPage: null, currentObject: null, currentCategory: null, films: null, homeworld: null}
         default:
             return state;
     }
