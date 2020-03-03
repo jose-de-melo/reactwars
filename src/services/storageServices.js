@@ -20,6 +20,9 @@ export function addUser(user, password){
 export function verifyLoginOnStorage(user, password){
     let logins = JSON.parse(localStorage.getItem("@reactwars/logins"))
 
+    if(!logins)
+      return false
+
     for(let i = 0; i < logins.length; i++){
       let element = logins[i]
       

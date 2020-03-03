@@ -41,14 +41,6 @@ img{
     width: 150px;
 }
 
-.box {
-    width: 600px;
-    height: 600px;
-    background: #fff;
-    border-radius: 5px;
-    text-align: center;
-}
-
 .input{
     width: 70% !important;
 }
@@ -114,10 +106,11 @@ img{
     }
 
     .button-home{
-        margin-bottom: 25px;
+        margin-bottom: 30px;
     }
 
     img{
         width: 130px;
     }
+
 }

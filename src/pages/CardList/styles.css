@@ -5,19 +5,22 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: rgb(171,215,242);
-    background: linear-gradient(90deg, rgba(171,215,242,1) 4%, rgba(45,38,180,1) 74%);
- 
+    background-color: #7e57c2;
 }
 
 .loading{
     height: 100vh;
+    color: #FFF;
+    font-size: 40px;
+    margin: 10% 0;
+    font-weight: bold;
 }
 
 .title-list{
     color: #FFF;
     padding: 20px 0;
     font-size: 40px;
+    display: flex;
 }
 
 .list{
@@ -29,7 +32,7 @@
 }
 
 .card-list{
-    background-color: #FFF;
+    background-color: #f3e5f5;
     border-radius: 5px;
     width: 40%;
     height: 150px;
@@ -52,13 +55,80 @@
     align-items: center;
 }
 
-.button-action{
-    background-color: blueviolet;
+.buttons-action{
+    margin-bottom: 25px;
+}
+
+.button-action, .b-home{
+    background-color: #FFF;
     border: none;
-    color: #fff;
+    color: blueviolet;
     padding: 15px;
     border-radius: 5px;
     cursor: pointer;
     font-size: 15px;
     margin: 0 20px;
+}
+
+.b-home{
+    width: 150px;
+    margin: 20px 0;
+}
+
+.description{
+    margin-top: 15px;
+    font-size: 15px;
+    font-weight: normal;
+}
+
+a{
+    text-decoration: none;
+}
+
+a:visited{
+    color: blueviolet;
+}
+
+.button-action:disabled{
+    opacity: 0.5;
+    cursor: auto;
+}
+
+@media screen and (max-width: 480px) {
+    .card-list{
+        width: 85%;
+    }
+
+    .name-element{
+        text-align: -webkit-center;
+        font-size: 20px
+    }
+
+    .buttonCard{
+        font-size: 12px;
+    }
+
+    .description{
+        font-size: 11px;
+    }
+
+    .buttons-action{
+        display: flex;
+        
+    }
+
+    .button-action{
+        width: 90px;
+        padding: 10px;
+        font-size: 13px;
+        text-align: -webkit-center;
+        margin: 0 5px;
+        margin-bottom: 10px;
+    }
+
+    .loading{
+        font-size: 30px;
+    }
+
+
 }

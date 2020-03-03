@@ -15,6 +15,32 @@ export default function CardList() {
     const history = useHistory()
     let { category } = useParams()
 
+
+    function renderDescriptionPeople(element){
+        return <div>
+                    {element.gender}, {element.height} cm, {element.mass} kg
+                </div>
+    }
+
+    function renderDescriptionPlanets(element){
+        console.log(element)
+        return <div>
+                    {element.climate}, {element.population} habitants
+                </div>
+    }
+    function renderDescriptionStarships(element){
+        console.log(element)
+        return <div>
+                    {element.passengers} passageiros, {element.cost_in_credits} credits
+                </div>
+    }
+
+    const descriptionFunctions = {
+        'people': renderDescriptionPeople,
+        'planets': renderDescriptionPlanets,
+        'starships': renderDescriptionStarships
+    }
+
     function setData(data){
         dispatch(fetchData(data.data.results, data.data.next, data.data.previous))
     }
@@ -49,14 +75,13 @@ export default function CardList() {
 
     return (
         <div className="c-list">
-            <div className="title-list">
-                <FormattedMessage id={category}/>
+             <div>
+                <button className="b-home" type="button" onClick={goBackHome}>Home</button>
             </div>
 
-            <div>
-                <button type="button" onClick={goBackHome}>Página Inicial</button>
+            <div id="title-list" className="title-list">
+                <FormattedMessage id={category}/>
             </div>
-            
 
             <div className="list">
 
@@ -65,6 +90,9 @@ export default function CardList() {
                     state.data.map(element =>
                         <div className="card-list" key={element.name}>
                             <div className="name-element">{element.name}</div>
+                            <div className="description">
+                                {descriptionFunctions[category](element)}
+                            </div>
                             <button className="button-card buttonCard" type="button" onClick={() => moreInfo(element)}>Ver mais</button>
                         </div>
                     )
@@ -73,12 +101,18 @@ export default function CardList() {
             </div>
         
             <div className="buttons-action">
-                <button className="button-action" type="button" onClick={() => getPage('previousPage')}>Página Anterior</button>
-                <button className="button-action" type="button" onClick={() => getPage('nextPage')}>Próxima Página</button>
-            </div>
+                {(state.previousPage)
+                    ? <button className="button-action" type="button" onClick={() => getPage('previousPage')}>Página Anterior</button> 
+                    : <button disabled className="button-action" type="button">Página Anterior</button> 
+                }
+                
+                <a className="button-action" href="#title-list">Voltar ao topo</a>
 
-            
-        
+                {(state.nextPage)
+                    ? <button className="button-action" type="button" onClick={() => getPage('nextPage')}>Próxima Página</button>
+                    : <button disabled className="button-action" type="button">Próxima Página</button>
+                }
+            </div>
         </div>
     );
 }
