@@ -3,8 +3,6 @@ import React, { Component } from 'react';
 import { GoGlobe } from "react-icons/go";
 import { FaFilm, FaWeight, FaUserAlt, FaTransgender, FaRulerVertical, FaCalendar} from "react-icons/fa"
 
-import './styles.css';
-
 export default class CardPeople extends Component {
 
   render() {
@@ -56,9 +54,6 @@ export default class CardPeople extends Component {
                     </ul>
                   </div>
                 </div>
-
-
-                
             </div>;
   }
 }

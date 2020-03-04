@@ -58,7 +58,8 @@ export default function CardList() {
     }
 
     async function moreInfo(object){
-        object.films = await getNameFilms(object.films)
+        if(object.films)
+            object.films = await getNameFilms(object.films)
 
         if(object.homeworld)
             object.homeworld = await getNameForPlanet(object.homeworld.split("/api/")[1])

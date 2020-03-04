@@ -15,10 +15,10 @@ export async function getPlanetName(path){
 export async function getNameFilms(listFilms){
     let films = []
 
-    listFilms.map(async(link) => {
-        var response = await api.get(link.split("/api/")[1])
+    for(let i=0; i < listFilms.length; i++){
+        var response = await api.get(listFilms[i].split("/api/")[1])
         films.push(response.data.title)
-    })
+    }
 
     return films
 }
@@ -29,6 +29,5 @@ export async function getNameForPlanet(path){
 
 export async function getSpecies(path){
     var response = await api.get(path.split("/api/")[1])
-
     return response.data.name
 }
