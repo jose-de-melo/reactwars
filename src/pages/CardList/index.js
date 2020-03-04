@@ -6,6 +6,7 @@ import { FormattedMessage } from 'react-intl'
 
 import { fetchData, clearData, setCurrentObject } from '../../store/actions'
 import { getDataFromCategory, getPageData, getNameFilms, getNameForPlanet, getSpecies} from '../../services/apiServices'
+import { verifyStorage } from '../../services/storageServices'
 
 import './styles.css'
 
@@ -44,6 +45,11 @@ export default function CardList() {
         dispatch(fetchData(data.data.results, data.data.next, data.data.previous))
     }
 
+    function userLogged(){
+        if(!verifyStorage())
+            history.push('/login')
+    }
+
     async function getInitialData(){
         if(!state.data){
             let response = await getDataFromCategory(category)
@@ -77,7 +83,9 @@ export default function CardList() {
         history.push('/')
     }
 
-    useEffect(() => { getInitialData() }
+    useEffect(() => { 
+        userLogged()
+        getInitialData() }
     // eslint-disable-next-line react-hooks/exhaustive-deps
     , [])
 
