@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { FormattedMessage } from 'react-intl'
+import { useIntl, FormattedMessage } from 'react-intl'
 
 import { useHistory, Link } from "react-router-dom";
 import { verifyLoginOnStorage, verifyStorage } from '../../services/storageServices'
@@ -7,11 +7,12 @@ import { verifyLoginOnStorage, verifyStorage } from '../../services/storageServi
 import { TextInput, Button } from 'grommet';
 import './styles.css'
 
-export default function Login(){
+export default function Login(props){
   let history = useHistory();
 
   const [user, setUser] = useState('');
   const [password, setPassword] = useState('');
+  const intl = useIntl()
 
   const [error, setError] = useState(false)
   const [message, setMessage] = useState('')
@@ -19,7 +20,7 @@ export default function Login(){
   function verifyFields(){
       if(user === '' || password === ''){
           setError(true)
-          setMessage('Login inválido!')
+          setMessage(intl.formatMessage({id: 'messageErrorLogin'}))
           return false;
       }
       return true;
@@ -57,27 +58,27 @@ export default function Login(){
 
         <div className="action"><FormattedMessage id="action"/></div>
 
-        <div className="label-input">Usuário</div>
+        <div className="label-input"><FormattedMessage id="labelUser"/></div>
 
         <TextInput
           className="input"
           size="small"
           dropHeight="small"
-          placeholder="Usuário"
+          placeholder={intl.formatMessage({id: 'labelUser'})}
           value={user}
           onChange={(event) =>{
               setUser(event.target.value)
           }}
         />
 
-        <div className="label-input">Senha</div>
+        <div className="label-input"><FormattedMessage id="labelPassword"/></div>
 
         <TextInput
           className="input"
           size="small"
           type="password"
           dropHeight="small"
-          placeholder="Senha"
+          placeholder={intl.formatMessage({id: 'labelPassword'})}
           value={password}
           onChange={(event) =>{
               setPassword(event.target.value)
@@ -86,13 +87,13 @@ export default function Login(){
 
         <Button
           className="button"
-          label="Entrar"
+          label={intl.formatMessage({id: 'action'})}
           onClick={() => {handleLogin()}}
         />
 
         <div className="div-link">
             <Link className="link" to="/register">
-              Sem cadastro ? Registre-se aqui.
+              <FormattedMessage id="messageNoAccount"/>
             </Link>
         </div>
 

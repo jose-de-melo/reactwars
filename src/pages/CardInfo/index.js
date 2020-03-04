@@ -1,8 +1,9 @@
 import React from 'react';
 
-//useDispatch
 import { useSelector } from 'react-redux'
 import { useHistory } from "react-router-dom";
+
+import { FormattedMessage } from 'react-intl'
 
 import CardPeople from '../../components/CardPeople'
 import CardPlanet from '../../components/CardPlanet'
@@ -30,7 +31,9 @@ export default function CardInfo() {
   return (
     <div className="c-info">
       {renderCard()}
-      <button className="button-info" type="button" onClick={() => {history.push(`/list/${category}`)}}>Voltar</button>
+      <button className="button-info" type="button" onClick={() => {history.push(`/list/${category}`)}}>
+        <FormattedMessage id="linkRegister"/>
+      </button>
     </div>
   );
 }

@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react'
-import { useHistory } from "react-router-dom";
-//import { FormattedMessage } from 'react-intl'
+import { useHistory } from "react-router-dom"
+import { FormattedMessage } from 'react-intl'
 
 import { verifyStorage, removeUserLogged } from '../../services/storageServices'
 
 import './styles.css'
 
 export default function Home(){
-    let history = useHistory();
+    const history = useHistory();
 
     function userLogged(){
         if(!verifyStorage())
@@ -34,23 +34,29 @@ export default function Home(){
             <div className="div-cards">
                 <span className="card-home">
                     <img src="images/luke.png" alt="Luke Skywalker"/>
-                    <h3 className="title-card">Personagens</h3>
-                    <div className="info-card">Informações sobre todos os personagens dos sete primeiros filmes</div>
-                    <button className="button-card" type="button" onClick={() => showListPage('people')}>Listar Personagens</button>
+                    <h3 className="title-card"><FormattedMessage id="people"/></h3>
+                    <div className="info-card"><FormattedMessage id="infoPeopleHome"/></div>
+                    <button className="button-card" type="button" onClick={() => showListPage('people')}>
+                        <FormattedMessage id="buttonPeopleHome"/>
+                    </button>
                 </span>
 
                 <span className="card-home">
                     <img src="images/tatooine.jpg" alt="Tatooine"/>
-                    <h3 className="title-card">Planetas</h3>
-                    <div className="info-card">Informações sobre todos os planetas contidos nos sete primeiros filmes</div>
-                    <button className="button-card" type="button" onClick={() => showListPage('planets')}>Listar Planetas</button>
+                    <h3 className="title-card"><FormattedMessage id="planets"/></h3>
+                    <div className="info-card"><FormattedMessage id="infoPlanetsHome"/></div>
+                    <button className="button-card" type="button" onClick={() => showListPage('planets')}>
+                        <FormattedMessage id="buttonPlanetsHome"/>
+                    </button>
                 </span>
 
                 <span className="card-home">
                     <img src="images/millenium.jpg" alt="Millenium Falcom"/>
-                    <h3 className="title-card">Espaçonaves</h3>
-                    <div className="info-card">Informações sobre todos as espaçonaves vistas nos sete primeiros filmes</div>
-                    <button className="button-card" type="button" onClick={() => showListPage('starships')}>Listar Espaçonaves</button>
+                    <h3 className="title-card"><FormattedMessage id="starships"/></h3>
+                    <div className="info-card"><FormattedMessage id="infoStarshipsHome"/></div>
+                    <button className="button-card" type="button" onClick={() => showListPage('starships')}>
+                        <FormattedMessage id="buttonStarshipsHome"/>
+                    </button>
                 </span>
 
             </div>

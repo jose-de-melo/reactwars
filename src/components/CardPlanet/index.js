@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import { FormattedMessage } from 'react-intl'
 import { FaTemperatureLow, FaFilm, FaUserAlt} from "react-icons/fa"
 
 export default class CardPlanet extends Component {
@@ -20,8 +20,8 @@ export default class CardPlanet extends Component {
                       <FaUserAlt className="icon"/>
                       <div className="info-value">
                       {(this.props.element.population === 'unknown') 
-                        ? 'Número de habitantes desconhecido'
-                        : `${this.props.element.population} habitantes`
+                        ? <FormattedMessage id="unknownHabitants"/>
+                        : <span>{this.props.element.population} <FormattedMessage id="habitants"/></span>
                       }
                       </div>
                     </div >

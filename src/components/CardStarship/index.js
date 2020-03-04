@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import { FormattedMessage } from 'react-intl'
 import { FaCoins, FaFilm, FaUserAlt} from "react-icons/fa"
 
 export default class CardStarship extends Component {
@@ -12,7 +12,7 @@ export default class CardStarship extends Component {
                   <div className="row">
                     <div>
                       <FaCoins className="icon" />
-                      <div className="info-value">{this.props.element.cost_in_credits} credits</div>
+                      <div className="info-value">{this.props.element.cost_in_credits} <FormattedMessage id="credits"/></div>
                     </div>
                   </div>
 
@@ -21,8 +21,8 @@ export default class CardStarship extends Component {
                       <FaUserAlt className="icon"/>
                       <div className="info-value">
                       {(this.props.element.passengers === 'unknown') 
-                        ? 'Número de passageiros desconhecido'
-                        : `${this.props.element.passengers} passageiros`
+                        ? <FormattedMessage id="unknownPassengers"/>
+                        : <span>{this.props.element.passengers} <FormattedMessage id="passengers"/></span>
                       }
                       </div>
                     </div >

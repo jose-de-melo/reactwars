@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import { GoGlobe } from "react-icons/go";
 import { FaFilm, FaWeight, FaUserAlt, FaTransgender, FaRulerVertical, FaCalendar} from "react-icons/fa"
 
+import { FormattedMessage } from 'react-intl'
+
 export default class CardPeople extends Component {
 
   render() {
@@ -13,7 +15,12 @@ export default class CardPeople extends Component {
                   <div className="row">
                     <div className="planet">
                       <GoGlobe className="icon" />
-                      <div className="info-value">{this.props.element.homeworld}</div>
+                      <div className="info-value">
+                        {(this.props.element.homeworld === 'unknown') 
+                          ? <FormattedMessage id="unknown"/>
+                          : <span>{this.props.element.homeworld}</span>
+                        }
+                      </div>
                     </div>
 
                     <div className="center-info">

@@ -24,12 +24,13 @@ export default function CardList() {
 
     function renderDescriptionPlanets(element){
         return <div>
-                    {element.climate}, {element.population} habitants
+                    {element.climate}, {element.population} <FormattedMessage id="habitants"/>
                 </div>
     }
+
     function renderDescriptionStarships(element){
         return <div>
-                    {element.passengers} passageiros, {element.cost_in_credits} credits
+                    {element.passengers} <FormattedMessage id="passengers"/>, {element.cost_in_credits} <FormattedMessage id="credits"/>
                 </div>
     }
 
@@ -100,24 +101,26 @@ export default function CardList() {
                             <div className="description">
                                 {descriptionFunctions[category](element)}
                             </div>
-                            <button className="button-card buttonCard" type="button" onClick={() => moreInfo(element)}>Ver mais</button>
+                            <button className="button-card buttonCard" type="button" onClick={() => moreInfo(element)}>
+                                <FormattedMessage id="buttonList"/>
+                            </button>
                         </div>
                     )
                     :
-                    <div className="loading">Carregando...</div>}
+                    <div className="loading"><FormattedMessage id="loading"/></div>}
             </div>
         
             <div className="buttons-action">
                 {(state.previousPage)
-                    ? <button className="button-action" type="button" onClick={() => getPage('previousPage')}>Página Anterior</button> 
-                    : <button disabled className="button-action" type="button">Página Anterior</button> 
+                    ? <button className="button-action" type="button" onClick={() => getPage('previousPage')}><FormattedMessage id="buttonPrevious"/></button> 
+                    : <button disabled className="button-action" type="button"><FormattedMessage id="buttonPrevious"/></button> 
                 }
                 
-                <a className="button-action" href="#title-list">Voltar ao topo</a>
+                <a className="button-action" href="#title-list"><FormattedMessage id="buttonTop"/></a>
 
                 {(state.nextPage)
-                    ? <button className="button-action" type="button" onClick={() => getPage('nextPage')}>Próxima Página</button>
-                    : <button disabled className="button-action" type="button">Próxima Página</button>
+                    ? <button className="button-action" type="button" onClick={() => getPage('nextPage')}><FormattedMessage id="buttonNext"/></button>
+                    : <button disabled className="button-action" type="button"><FormattedMessage id="buttonNext"/></button>
                 }
             </div>
         </div>
