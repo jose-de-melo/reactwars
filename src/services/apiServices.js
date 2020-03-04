@@ -26,3 +26,9 @@ export async function getNameFilms(listFilms){
 export async function getNameForPlanet(path){
     return (await api.get(path)).data.name
 }
+
+export async function getSpecies(path){
+    var response = await api.get(path.split("/api/")[1])
+
+    return response.data.name
+}

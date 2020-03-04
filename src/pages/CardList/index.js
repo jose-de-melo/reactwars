@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import { FormattedMessage } from 'react-intl'
 
 import { fetchData, clearData, setCurrentObject } from '../../store/actions'
-import { getDataFromCategory, getPageData, getNameFilms, getNameForPlanet} from '../../services/apiServices'
+import { getDataFromCategory, getPageData, getNameFilms, getNameForPlanet, getSpecies} from '../../services/apiServices'
 
 import './styles.css'
 
@@ -58,13 +58,15 @@ export default function CardList() {
     }
 
     async function moreInfo(object){
-        var films = await getNameFilms(object.films)
-        var homeworld = null
+        object.films = await getNameFilms(object.films)
 
         if(object.homeworld)
-            homeworld = await getNameForPlanet(object.homeworld.split("/api/")[1])
+            object.homeworld = await getNameForPlanet(object.homeworld.split("/api/")[1])
 
-        dispatch(setCurrentObject(object, category, films, homeworld))
+        if(object.species)
+            object.species = await getSpecies(object.species[0])
+
+        dispatch(setCurrentObject(object, category))
         history.push('/info')
     }
 

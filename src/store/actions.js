@@ -4,13 +4,11 @@ export function clearData(){
     }
 }
 
-export function setCurrentObject(object, category, films, homeworld){
+export function setCurrentObject(object, category){
     return {
         type: 'SET_CURRENT_OBJECT',
         object,
         category,
-        films,
-        homeworld
     }
 }
 

@@ -10,25 +10,18 @@ import './styles.css'
 
 export default function CardInfo() {
   const state = useSelector(state => state)
-  const {currentObject, homeworld, films} = state
-  const category = useSelector(state => state.currentCategory)
+  const {currentObject} = state
+  //const category = useSelector(state => state.currentCategory)
+  const category = 'people'
   const history = useHistory()
 
-  const element = {
-    data: currentObject,
-    homeworld: homeworld,
-    films: films
-  }
-
   const renderFunctions = {
-    'people': (element) => <CardPeople element={element}/>
+    'people': (element) => <CardPeople element={currentObject}/>
   }
 
   function renderCard(){
-    return renderFunctions[category](element)
+    return renderFunctions[category](currentObject)
   }
-
-  
 
   return (
     <div className="c-info">
