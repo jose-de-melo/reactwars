@@ -6,7 +6,6 @@ import { FaFilm, FaWeight, FaUserAlt, FaTransgender, FaRulerVertical, FaCalendar
 import { FormattedMessage } from 'react-intl'
 
 export default class CardPeople extends Component {
-
   render() {
     return <div className="card-info">
                 <div className="info-name">{this.props.element.name}</div>

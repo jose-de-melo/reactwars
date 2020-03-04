@@ -51,6 +51,8 @@ export default function CardList() {
     }
 
     async function getInitialData(){
+        if(!category)
+            history.push('/')
         if(!state.data){
             let response = await getDataFromCategory(category)
             setData(response)
