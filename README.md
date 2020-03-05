@@ -12,9 +12,9 @@ A aplicação consiste em um SPA (Single Page Application), contendo telas para 
 # Tecnologias utilizadas
 
 - Para desenvolver cada tela, foi utilizado o ReactJS
-- Para realizar a navegação entre as telas, foi utilizado a biblioteca [react-router-dom](https://www.npmjs.com/package/react-router-dom)
+- Para realizar a navegação entre as telas, foi utilizada a biblioteca [react-router-dom](https://www.npmjs.com/package/react-router-dom)
 - Os dados dos usuários registrados na aplicação foram armazenados utilizando o [localStorage](https://developer.mozilla.org/pt-BR/docs/Web/API/Window/Window.localStorage)
-- As buscas na API foram realizadas através da biblioteca [axios](https://github.com/axios/axios)
+- As consultas a API foram realizadas através da biblioteca [axios](https://github.com/axios/axios)
 - A internacionalização da aplicação foi realizada utilizando a biblioteca [react-intl](https://github.com/formatjs/react-intl)
 - Os dados recebidos da API foram armazenados utilizando o [Redux](https://redux.js.org/)
 - Em grande parte da aplicação, os hooks foram utilizados para realizar diversas ações importantes para o bom funcionamento da mesma
