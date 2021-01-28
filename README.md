@@ -20,7 +20,7 @@ A aplicação consiste em um SPA (Single Page Application), contendo telas para 
 - Em grande parte da aplicação, os hooks foram utilizados para realizar diversas ações importantes para o bom funcionamento da mesma
 
 
-# Execuntando a aplicação
+# Executando a aplicação
 
 Com o ambiente React/Node.js configurado e o repositório clonado, execute os seguinte passos:
 
