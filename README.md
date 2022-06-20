@@ -11,7 +11,7 @@ A aplicação consiste em um SPA (Single Page Application), contendo telas para 
 
 # Tecnologias utilizadas
 
-- Para desenvolver cada tela, foi utilizado o ReactJS
+- ReactJS como framework principal para o desenvolvilmento das telas.
 - Para realizar a navegação entre as telas, foi utilizada a biblioteca [react-router-dom](https://www.npmjs.com/package/react-router-dom)
 - Os dados dos usuários registrados na aplicação foram armazenados utilizando o [localStorage](https://developer.mozilla.org/pt-BR/docs/Web/API/Window/Window.localStorage)
 - As consultas a API foram realizadas através da biblioteca [axios](https://github.com/axios/axios)
